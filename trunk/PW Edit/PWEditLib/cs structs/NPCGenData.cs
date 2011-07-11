@@ -62,6 +62,7 @@ namespace PWEditLib.NPCGenData
         /// Possibly maxnum
         /// </summary>
         Int32 unknown7;
+        List<CreatureGroup> creatureGroups;
     }
     public class ResourceGroup
     {
@@ -73,6 +74,98 @@ namespace PWEditLib.NPCGenData
     }
     public class ResourceSet
     {
+        Single spawnX;
+        Single spawnY;
+        Single spawnZ;
+        Single spreadX;
+        Single spreadZ;
+        Int32 resourceGroupCount;
+        Boolean unknown1;
+        Boolean unknown2;
+        Boolean unknown3;
+        Int32 unknown4;
+        /// <summary>
+        /// Byte used instead of Unsigned Char
+        /// </summary>
+        Byte unknow5a;
+        /// <summary>
+        /// Byte used instead of Unsigned Char
+        /// </summary>
+        Byte unknown5b;
+        /// <summary>
+        /// Byte used instead of Unsigned Char
+        /// </summary>
+        Byte unknown5c;
+        Int32 unknownTrigger;
+        /// <summary>
+        /// Byte used instead of Unsigned Char
+        /// </summary>
+        Byte unknown6;
+        Boolean unknown7;
+        Boolean unknown8;
+        Boolean unknown9;
+        List<ResourceGroup> resourceGroups;
+    }
+    public class DynamicObj
+    {
+        Int32 id;
+        Single spawnX;
+        Single spawnY;
+        Single spawnZ;
+        /// <summary>
+        /// Byte used instead of Unsigned Char
+        /// </summary>
+        Byte dir1;
+        /// <summary>
+        /// Byte used instead of Unsigned Char
+        /// </summary>
+        Byte dir2;
+        /// <summary>
+        /// Byte used instead of Unsigned Char
+        /// </summary>
+        Byte rad;
+        Trigger trigger;
+        /// <summary>
+        /// Byte used instead of Unsigned Char
+        /// </summary>
+        Byte scale;
 
     }
+    public class Trigger
+    {
+        Int32 id;
+        Int32 gmID;
+        String name;
+        Boolean autostart;
+        Int32 autostartDelay;
+        Int32 autostopDelay;
+        Boolean dontStartOnSch;
+        Boolean dontStoponSch;
+        Int32 year1;
+        Int32 month1;
+        Int32 weekDay1;
+        Int32 day1;
+        Int32 hour1;
+        Int32 minute1;
+        Int32 year2;
+        Int32 month2;
+        Int32 weekDay2;
+        Int32 day2;
+        Int32 hour2;
+        Int32 minute2;
+        Int32 duration;
+    }
+    public class NPCGEN
+    {
+        Int32 version;
+        Int32 creatureSetsCount;
+        Int32 resourceSetsCount;
+        Int32 dynamicsCount;
+        Int32 triggersCount;
+        List<CreatureSet> creatureSets;
+        List<ResourceSet> resourceSets;
+        List<DynamicObj> dynamics;
+        List<Trigger> triggers;
+    }
 }
+
