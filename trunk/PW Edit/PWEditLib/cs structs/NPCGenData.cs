@@ -1,171 +1,200 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace PWEditLib.NPCGenData
 {
     public class CreatureGroup
     {
-        Int32 id;
-        Int32 amount;
-        Int32 respawn;
+        public Int32 id;
+        public Int32 amount;
+        public Int32 respawn;
         //All of the unknowns (from Ronny1982's npcgen.h) are taken from screenshots
         //http://forum.ragezone.com/f452/demo-npcgen-edit-762857/
-        Int32 diedTimes;
-        Int32 agressive;
-        Int32 offsetWater;
-        Int32 offsetTrn;
-        Int32 faction;
-        Int32 facHelper;
-        Int32 facAccept;
-        Boolean needHelp;
-        Boolean defFaction;
-        Boolean defFacHelper;
-        Boolean defFacAccept;
-        Int32 pathID;
-        Int32 loopType;
-        Int32 speedFlag;
-        Int32 deadTime;
+        public Int32 diedTimes;
+        public Int32 agressive;
+        public Int32 offsetWater;
+        public Int32 offsetTrn;
+        public Int32 faction;
+        public Int32 facHelper;
+        public Int32 facAccept;
+        public Boolean needHelp;
+        public Boolean defFaction;
+        public Boolean defFacHelper;
+        public Boolean defFacAccept;
+        public Int32 pathID;
+        public Int32 loopType;
+        public Int32 speedFlag;
+        public Int32 deadTime;
     }
     public class CreatureSet
     {
-        Int32 spawnMode;
-        Int32 creatureGroupCount;
-        Single spawnX;
-        Single spawnY;
-        Single spawnZ;
-        Single rot1;
-        Single rot2;
-        Single rot3;
-        Single spreadX;
-        Single spreadY;
-        Single spreadZ;
+        public Int32 spawnMode;
+        public Int32 creatureGroupCount;
+        public Single spawnX;
+        public Single spawnY;
+        public Single spawnZ;
+        public Single rot1;
+        public Single rot2;
+        public Single rot3;
+        public Single spreadX;
+        public Single spreadY;
+        public Single spreadZ;
         /// <summary>
         /// Possibly Mob/NPC toggle
         /// </summary>
-        Int32 unknown1;
-        Int32 unknown2;
-        Boolean unknown3;
-        Boolean unknown4;
+        public Int32 unknown1;
+        public Int32 unknown2;
+        public Boolean unknown3;
+        public Boolean unknown4;
         /// <summary>
         /// Possibly instant respawn toggle
         /// </summary>
-        Boolean unknown5;
-        Int32 unknown6;
-        Int32 trigger;
+        public Boolean unknown5;
+        public Int32 unknown6;
+        public Int32 trigger;
         /// <summary>
         /// Possibly lifetime
         /// </summary>
-        Int32 unknown6;
+        public Int32 unknown6;
         /// <summary>
         /// Possibly maxnum
         /// </summary>
-        Int32 unknown7;
-        List<CreatureGroup> creatureGroups;
+        public Int32 unknown7;
+        public List<CreatureGroup> creatureGroups;
     }
     public class ResourceGroup
     {
-        Int32 type;
-        Int32 id;
-        Int32 respawn;
-        Int32 amount;
-        Int32 unknown1;
+        public Int32 type;
+        public Int32 id;
+        public Int32 respawn;
+        public Int32 amount;
+        public Int32 unknown1;
     }
     public class ResourceSet
     {
-        Single spawnX;
-        Single spawnY;
-        Single spawnZ;
-        Single spreadX;
-        Single spreadZ;
-        Int32 resourceGroupCount;
-        Boolean unknown1;
-        Boolean unknown2;
-        Boolean unknown3;
-        Int32 unknown4;
+        public Single spawnX;
+        public Single spawnY;
+        public Single spawnZ;
+        public Single spreadX;
+        public Single spreadZ;
+        public Int32 resourceGroupCount;
+        public Boolean unknown1;
+        public Boolean unknown2;
+        public Boolean unknown3;
+        public Int32 unknown4;
         /// <summary>
         /// Byte used instead of Unsigned Char
         /// </summary>
-        Byte unknow5a;
+        public Byte unknow5a;
         /// <summary>
         /// Byte used instead of Unsigned Char
         /// </summary>
-        Byte unknown5b;
+        public Byte unknown5b;
         /// <summary>
         /// Byte used instead of Unsigned Char
         /// </summary>
-        Byte unknown5c;
-        Int32 unknownTrigger;
+        public Byte unknown5c;
+        public Int32 unknownTrigger;
         /// <summary>
         /// Byte used instead of Unsigned Char
         /// </summary>
-        Byte unknown6;
-        Boolean unknown7;
-        Boolean unknown8;
-        Boolean unknown9;
-        List<ResourceGroup> resourceGroups;
+        public Byte unknown6;
+        public Boolean unknown7;
+        public Boolean unknown8;
+        public Boolean unknown9;
+        public List<ResourceGroup> resourceGroups;
     }
     public class DynamicObj
     {
-        Int32 id;
-        Single spawnX;
-        Single spawnY;
-        Single spawnZ;
+        public Int32 id;
+        public Single spawnX;
+        public Single spawnY;
+        public Single spawnZ;
         /// <summary>
         /// Byte used instead of Unsigned Char
         /// </summary>
-        Byte dir1;
+        public Byte dir1;
         /// <summary>
         /// Byte used instead of Unsigned Char
         /// </summary>
-        Byte dir2;
+        public Byte dir2;
         /// <summary>
         /// Byte used instead of Unsigned Char
         /// </summary>
-        Byte rad;
-        Trigger trigger;
+        public Byte rad;
+        public Trigger trigger;
         /// <summary>
         /// Byte used instead of Unsigned Char
         /// </summary>
-        Byte scale;
-
+        public Byte scale;
     }
     public class Trigger
     {
-        Int32 id;
-        Int32 gmID;
-        String name;
-        Boolean autostart;
-        Int32 autostartDelay;
-        Int32 autostopDelay;
-        Boolean dontStartOnSch;
-        Boolean dontStoponSch;
-        Int32 year1;
-        Int32 month1;
-        Int32 weekDay1;
-        Int32 day1;
-        Int32 hour1;
-        Int32 minute1;
-        Int32 year2;
-        Int32 month2;
-        Int32 weekDay2;
-        Int32 day2;
-        Int32 hour2;
-        Int32 minute2;
-        Int32 duration;
+        public Int32 id;
+        public Int32 gmID;
+        public String name;
+        public Boolean autostart;
+        public Int32 autostartDelay;
+        public Int32 autostopDelay;
+        public Boolean dontStartOnSch;
+        public Boolean dontStoponSch;
+        public Int32 year1;
+        public Int32 month1;
+        public Int32 weekDay1;
+        public Int32 day1;
+        public Int32 hour1;
+        public Int32 minute1;
+        public Int32 year2;
+        public Int32 month2;
+        public Int32 weekDay2;
+        public Int32 day2;
+        public Int32 hour2;
+        public Int32 minute2;
+        public Int32 duration;
     }
     public class NPCGEN
     {
-        Int32 version;
-        Int32 creatureSetsCount;
-        Int32 resourceSetsCount;
-        Int32 dynamicsCount;
-        Int32 triggersCount;
-        List<CreatureSet> creatureSets;
-        List<ResourceSet> resourceSets;
-        List<DynamicObj> dynamics;
-        List<Trigger> triggers;
+        public Int32 version;
+        public Int32 creatureSetsCount;
+        public Int32 resourceSetsCount;
+        public Int32 dynamicsCount;
+        public Int32 triggersCount;
+        public List<CreatureSet> creatureSets;
+        public List<ResourceSet> resourceSets;
+        public List<DynamicObj> dynamics;
+        public List<Trigger> triggers;
+        /// <summary>
+        /// dummy constructor, manual load/save available
+        /// </summary>
+        public NPCGEN() { }
+        /// <summary>
+        /// auto load constructor, manual load/save available
+        /// </summary>
+        /// <param name="NPCGenFile">Path to the npcgen.data file</param>
+        public NPCGEN(String NPCGenFile)
+        {
+
+        }
+        /// <summary>
+        /// Load an npcgen.data file
+        /// </summary>
+        /// <param name="NPCGenFile">Path to the npcgen.data file</param>
+        /// <returns>True on successful load</returns>
+        public Boolean load(String NPCGenFile)
+        {
+
+        }
+        /// <summary>
+        /// Save an npcgen.data file
+        /// </summary>
+        /// <param name="NPCGenFile">Path to save npcgen.data to</param>
+        /// <returns>True on successful save</returns>
+        public Boolean save(String NPCGenFile)
+        {
+            return true;
+        }
     }
 }
 
