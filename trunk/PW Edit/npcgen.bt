@@ -1,0 +1,153 @@
+//--------------------------------------
+//--- 010 Editor v3.1 Binary Template
+//
+// File: npcgen.data
+// Author: das7002
+// Revision: 1
+// Purpose: NPCGen Template to assist
+//          in my C# development
+//--------------------------------------
+struct NpcGenHeader{
+    int version;
+    int creatureSetsCount;
+    int resourceSetsCount;
+    int dynamicsCount;
+    int triggersCount;
+} Header;
+struct CreatureGroup{
+    int id;
+    int amount;
+    int respawn;
+    int diedTimes;
+    int agressive;
+    int offsetWater;
+    int offsetTrn;
+    int faction;
+    int facHelper;
+    int facAccept;
+    byte needHelp;
+    byte defFaction;
+    byte defFacHelper;
+    byte defFacAccept;
+    int pathId;
+    int loopType;
+    int speedFlag;
+    int deadTime;
+};
+struct CreatureSet{
+    int spawnMode;
+    int creatureGroupCount;
+    float spawnX;
+    float spawnY;
+    float spawnZ;
+    float rot1;
+    float rot2;
+    float rot3;
+    float spreadX;
+    float spreadY;
+    float spreadZ;
+    int unknown1;
+    int unknown2;
+    byte unknown3;
+    byte unknown4;
+    byte unknown5;
+    int unknown6;
+    int trigger;
+    int unknown7;
+    int unknown8;
+    local int i;
+    for(i = 0; i < creatureGroupCount; i++){
+        CreatureGroup creatureGroup;
+    }
+};
+struct ResourceGroup{
+    int type;
+    int id;
+    int respawn;
+    int amount;
+    int unknown1;
+};
+struct ResourceSet{
+    float spawnX;
+    float spawnY;
+    float spawnZ;
+    float spreadX;
+    float spreadZ;
+    int resourceGroupsCount;
+    byte unknown1;
+    byte unknown2;
+    byte unknown3;
+    int unknown4;
+    byte unknown5a;
+    byte unknown5b;
+    byte unknown5c;
+    int unknownTrigger;
+    byte unknown6;
+    byte unknown7;
+    byte unknown8;
+    byte unknown9;
+    local int i;
+    for(i = 0; i < resourceGroupsCount; i++){
+        ResourceGroup resourceGroup;
+    }
+};
+struct DynamicObj{
+    int id;
+    float spawnX;
+    float spawnY;
+    float spawnZ;
+    byte dir1;
+    byte dir2;
+    byte rad;
+    int triggerID;
+    byte scale;
+};
+struct Trigger{
+    int id;
+    int gmId;
+    char name[128];
+    byte autostart;
+    int autostartDelay;
+    int autostopDelay;
+    byte dontStartOnSch;
+    byte dontStopOnSch;
+    int year1;
+    int month1;
+    int weekDay1;
+    int day1;
+    int hour1;
+    int minute1;
+    int year2;
+    int month2;
+    int weekDay2;
+    int day2;
+    int hour2;
+    int minute2;
+    int duration;
+};
+
+//Read the file and make it nice and organized
+struct CreatureSetOrganizer{
+    local int i;
+    for(i = 0; i < Header.creatureSetsCount; i++){
+        CreatureSet creatureSet;
+    }
+}creatureSets;
+struct ResourceSetOrganizer{
+    local int i;
+    for(i = 0; i < Header.resourceSetsCount; i++){
+        ResourceSet resourceSet;
+    }
+}resourceSets;
+struct DynamicObjOrganizer{
+    local int i;
+    for(i = 0; i < Header.dynamicsCount; i++){
+        DynamicObj dynamicObj;
+    }
+}dynamicObjs;
+struct TriggerOrganizer{
+    local int i;
+    for(i = 0; i < Header.triggersCount; i++){
+        Trigger trigger;
+    }
+}triggers;

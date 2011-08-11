@@ -57,11 +57,11 @@ namespace PWEditLib.NPCGenData
         /// <summary>
         /// Possibly lifetime
         /// </summary>
-        public Int32 unknown6;
+        public Int32 unknown7;
         /// <summary>
         /// Possibly maxnum
         /// </summary>
-        public Int32 unknown7;
+        public Int32 unknown8;
         public List<CreatureGroup> creatureGroups;
     }
     public class ResourceGroup
@@ -124,7 +124,7 @@ namespace PWEditLib.NPCGenData
         /// Byte used instead of Unsigned Char
         /// </summary>
         public Byte rad;
-        public Trigger trigger;
+        public Int32 triggerID;
         /// <summary>
         /// Byte used instead of Unsigned Char
         /// </summary>
@@ -175,7 +175,7 @@ namespace PWEditLib.NPCGenData
         /// <param name="NPCGenFile">Path to the npcgen.data file</param>
         public NPCGEN(String NPCGenFile)
         {
-
+            load(NPCGenFile);
         }
         /// <summary>
         /// Load an npcgen.data file
@@ -184,6 +184,21 @@ namespace PWEditLib.NPCGenData
         /// <returns>True on successful load</returns>
         public Boolean load(String NPCGenFile)
         {
+            MemoryStream ms = new MemoryStream();
+            FileStream fs = new FileStream(NPCGenFile, FileMode.Open);
+            //Clone the FileStream into memory release and reset Position on MemoryStream
+            fs.CopyTo(ms); fs.Close(); ms.Position = 0;
+            BinaryReader br = new BinaryReader(ms);
+            creatureSets = new List<CreatureSet>();
+            resourceSets = new List<ResourceSet>();
+            dynamics = new List<DynamicObj>();
+            triggers = new List<Trigger>();
+            version = br.ReadInt32();
+            creatureSetsCount = br.ReadInt32();
+            resourceSetsCount = br.ReadInt32();
+            dynamicsCount = br.ReadInt32();
+            triggersCount = br.ReadInt32();
+            
 
         }
         /// <summary>
