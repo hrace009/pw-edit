@@ -134,7 +134,11 @@ namespace PWEditLib.NPCGenData
     {
         public Int32 id;
         public Int32 gmID;
-        public String name;
+        //public String name;
+        /// <summary>
+        /// Declared as a byte array instead of a string due to fixed size in NPCGen
+        /// </summary>
+        public Byte[] name = new Byte[128];
         public Boolean autostart;
         public Int32 autostartDelay;
         public Int32 autostopDelay;
@@ -198,8 +202,60 @@ namespace PWEditLib.NPCGenData
             resourceSetsCount = br.ReadInt32();
             dynamicsCount = br.ReadInt32();
             triggersCount = br.ReadInt32();
-            
-
+            Int32 i;
+            Int32 x;
+            CreatureSet creatureFillHolder;
+            CreatureGroup creatureGFillHolder;
+            for (i = 0; i < creatureSetsCount; i++)
+            {
+                creatureFillHolder = new CreatureSet();
+                creatureFillHolder.spawnMode = br.ReadInt32();
+                creatureFillHolder.creatureGroupCount = br.ReadInt32();
+                creatureFillHolder.spawnX = br.ReadSingle();
+                creatureFillHolder.spawnY = br.ReadSingle();
+                creatureFillHolder.spawnZ = br.ReadSingle();
+                creatureFillHolder.rot1 = br.ReadSingle();
+                creatureFillHolder.rot2 = br.ReadSingle();
+                creatureFillHolder.rot3 = br.ReadSingle();
+                creatureFillHolder.spreadX = br.ReadSingle();
+                creatureFillHolder.spreadY = br.ReadSingle();
+                creatureFillHolder.spreadZ = br.ReadSingle();
+                creatureFillHolder.unknown1 = br.ReadInt32();
+                creatureFillHolder.unknown2 = br.ReadInt32();
+                creatureFillHolder.unknown3 = br.ReadBoolean();
+                creatureFillHolder.unknown4 = br.ReadBoolean();
+                creatureFillHolder.unknown5 = br.ReadBoolean();
+                creatureFillHolder.unknown6 = br.ReadInt32();
+                creatureFillHolder.trigger = br.ReadInt32();
+                creatureFillHolder.unknown7 = br.ReadInt32();
+                creatureFillHolder.unknown8 = br.ReadInt32();
+                creatureFillHolder.creatureGroups = new List<CreatureGroup>();
+                for (x = 0; x < creatureFillHolder.creatureGroupCount; x++)
+                {
+                    creatureGFillHolder = new CreatureGroup();
+                    creatureGFillHolder.id = br.ReadInt32();
+                    creatureGFillHolder.amount = br.ReadInt32();
+                    creatureGFillHolder.respawn = br.ReadInt32();
+                    creatureGFillHolder.diedTimes = br.ReadInt32();
+                    creatureGFillHolder.agressive = br.ReadInt32();
+                    creatureGFillHolder.offsetWater = br.ReadInt32();
+                    creatureGFillHolder.offsetTrn = br.ReadInt32();
+                    creatureGFillHolder.faction = br.ReadInt32();
+                    creatureGFillHolder.facHelper = br.ReadInt32();
+                    creatureGFillHolder.facAccept = br.ReadInt32();
+                    creatureGFillHolder.needHelp = br.ReadBoolean();
+                    creatureGFillHolder.defFaction = br.ReadBoolean();
+                    creatureGFillHolder.defFacHelper = br.ReadBoolean();
+                    creatureGFillHolder.defFacAccept = br.ReadBoolean();
+                    creatureGFillHolder.pathID = br.ReadInt32();
+                    creatureGFillHolder.loopType = br.ReadInt32();
+                    creatureGFillHolder.speedFlag = br.ReadInt32();
+                    creatureGFillHolder.deadTime = br.ReadInt32();
+                    creatureFillHolder.creatureGroups.Add(creatureGFillHolder);
+                }
+                creatureSets.Add(creatureFillHolder);
+            }
+            return true;
         }
         /// <summary>
         /// Save an npcgen.data file
