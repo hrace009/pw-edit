@@ -156,6 +156,111 @@ namespace PWEditLib.ElementsData
         /// +1.5 not 15
         /// </summary>
         MoveSpeedP15,
+        EvadP150,
+        EvadP250,
+        EvadP350,
+        EvadP450,
+        EvadP600,
+        PDefP94 = 656,
+        /// <summary>
+        /// Armor only
+        /// </summary>
+        PDefP216 = 661,
+        EvadP600N2,
+        PhysAtkP56 = 762,
+        PhyAtkP63,
+        MaxPhysAtkP139 = 805,
+        MagAtkP63 = 821,
+        MaxMagAtkP94 = 831,
+        PhysAtkP24 = 860,
+        MagAtkP24 = 893,
+        PDefP81 = 918,
+        PDefP91,
+        EvadP72 = 927,
+        EvadP83,
+        EvadP93,
+        MaxMagAtkP142 = 987,
+        MaxMagAtkP130 = 988,
+        MagAtkP70 = 990,
+        MaxPhysAtackP201 = 998,
+        MaxPhysAtkP185,
+        MaxPhysAtkP154 = 1001,
+        MaxPhysAtkP118 = 1003,
+        MaxPhysAtkP130,
+        MaxPhysAtkP142,
+        PhysAtkP70 = 1009,
+        PhysAtkP31 = 1011,
+        MagAtkP31 = 1018,
+        MagAtkP35,
+        PDefP289 = 1056,
+        /// <summary>
+        /// Strength + 2~3
+        /// </summary>
+        StrP23 = 1085,
+        /// <summary>
+        /// Strenth + 3~4
+        /// </summary>
+        StrP34,
+        /// <summary>
+        /// Strenth + 4~5
+        /// </summary>
+        StrP45,
+        /// <summary>
+        /// Dexterity + 2~3
+        /// </summary>
+        DexP23 = 1090,
+        /// <summary>
+        /// Dexterity + 3~4
+        /// </summary>
+        DexP34,
+        /// <summary>
+        /// Magic + 2~3
+        /// </summary>
+        MagP23 = 1095,
+        /// <summary>
+        /// Magic + 3~4
+        /// </summary>
+        MagP34,
+        /// <summary>
+        /// Vitality + 2~3
+        /// </summary>
+        VitP23 = 1101,
+        /// <summary>
+        /// Vitality + 3~4
+        /// </summary>
+        VitP34,
+        /// <summary>
+        /// Vitality + 4~5
+        /// </summary>
+        VitP45,
+        /// <summary>
+        /// Strenth + 8~9
+        /// </summary>
+        StrP89 = 1108,
+        /// <summary>
+        /// Dexterity + 8~9
+        /// </summary>
+        DexP89 = 1113,
+        /// <summary>
+        /// Vitality + 8~9
+        /// </summary>
+        VitP89 = 1118,
+        /// <summary>
+        /// Magic + 8~9
+        /// </summary>
+        MagP89 = 1123,
+        /// <summary>
+        /// Strenth +2
+        /// </summary>
+        StrP2 = 1126,
+        /// <summary>
+        /// Dexterity + 2~3
+        /// </summary>
+        DexP23 = 1132,
+        /// <summary>
+        /// Magic + 2~3
+        /// </summary>
+        MagP23 = 1136,
 
 
     }
