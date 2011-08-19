@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace PWEditLib.ElementsData
+﻿namespace PWEditLib.ElementsData
 {
-    enum ElementSkill
+    public enum ElementSkill
     {
         PDefP500 = 220,
         MaxEndP200 = 300,
@@ -84,7 +79,7 @@ namespace PWEditLib.ElementsData
         /// <summary>
         /// Accessory Only, Don't use on Armor
         /// </summary>
-        MagResP500,
+        MagResP500N2,
         HPRecovP12,
         MPRecovP7,
         /// <summary>
@@ -256,11 +251,278 @@ namespace PWEditLib.ElementsData
         /// <summary>
         /// Dexterity + 2~3
         /// </summary>
-        DexP23 = 1132,
+        DexP23N2 = 1132,
         /// <summary>
         /// Magic + 2~3
         /// </summary>
-        MagP23 = 1136,
+        MagP23N2 = 1136,
+        PDefP45 = 1246,
+        PDefP69,
+        PDefP94N2,
+        PDefP118,
+        PDefP142,
+        PDefP167,
+        PDefP191,
+        PDefP216N2,
+        PDefP240,
+        PDefP264,
+        PDefP289N2,
+        PdefP313,
+        EvadP10,
+        EvadP26,
+        EvadP46,
+        EvadP70,
+        EvadP94,
+        EvadP118,
+        EvadP142,
+        EvadP262 = 1269,
+        EvadP286,
+        EvadP310,
+        ReducePDmgTkn1N2,
+        ReducePDmgTkn2N2,
+        ReducePDmgTkn3N2,
+        /// <summary>
+        /// Pierce: Has a chance to decrease opponent's physical defence
+        /// </summary>
+        Pierce,
+        /// <summary>
+        /// Distract: Has a chance to decrease opponent's magic defence
+        /// </summary>
+        Distract,
+        /// <summary>
+        /// Fright: has a chance to decrease target's physical attack
+        /// </summary>
+        Fright,
+        /// <summary>
+        /// Muddle: has a chance to decrease target's magic attack
+        /// </summary>
+        Muddle,
+        /// <summary>
+        /// Atrophy: has a chance to decrease target's attack rate
+        /// </summary>
+        Atrophy,
+        /// <summary>
+        /// Stupefy: Has a chance to slow target's channeling
+        /// </summary>
+        Stupefy,
+        /// <summary>
+        /// Blind: Has a chance to decrease opponent's accuracy
+        /// </summary>
+        Blind,
+        /// <summary>
+        /// Daze: Has a chance to decrease enemy's evasion
+        /// </summary>
+        Daze,
+        /// <summary>
+        /// Toughen: Has a chance to increase physical defence
+        /// </summary>
+        Toughen,
+        /// <summary>
+        /// Wisen: Has a chance to increase character's magic defence
+        /// </summary>
+        Wisen,
+        /// <summary>
+        /// Slow: Has a chance to slow the opponent
+        /// </summary>
+        Slow,
+        /// <summary>
+        /// Sharpen: Has a chance to increase physical attack
+        /// </summary>
+        Sharpen,
+        /// <summary>
+        /// Quicken: Has a chance to increase attack rate
+        /// </summary>
+        Quicken,
+        /// <summary>
+        /// Nimble: Has a chance to increase accuracy
+        /// </summary>
+        Nimble,
+        /// <summary>
+        /// Regeneration: Has a chance to recover 5% HP
+        /// </summary>
+        Regeneration,
+        /// <summary>
+        /// Enlighten: Has a chance to recover MP by 5%
+        /// </summary>
+        Enlighten,
+        /// <summary>
+        /// Gloom: Has a chance to greatly increase physical attack at the cost of losing 5% MP
+        /// </summary>
+        Gloom,
+        /// <summary>
+        /// Unrelenting: Has a chance to greatly increase physical attack at the cost of reducing physical defence
+        /// </summary>
+        Unrelenting,
+        /// <summary>
+        /// Provoke: Increase your threat level
+        /// </summary>
+        Provoke,
+        /// <summary>
+        /// Has a chance to stun target for 3 seconds
+        /// </summary>
+        Stun3Sec,
+        /// <summary>
+        /// Freeze: Has a chance to freeze the opponent for 3 seconds
+        /// </summary>
+        Freeze,
+        /// <summary>
+        /// Seal: Has a chance to make the target unable to attack for 5 seconds
+        /// </summary>
+        Seal,
+        /// <summary>
+        /// Sacrificial Strike: Has a chance to inflict double damage at the cost of losing 5% HP
+        /// </summary>
+        SacrificialStrike,
+        /// <summary>
+        /// Berserk: Has a chance to make the wielder go berserk, increasing physical attack and attack rate along with damage taken
+        /// </summary>
+        Berserk,
+        /// <summary>
+        /// Meditation: Has a chance to recover HP and MP both by 5%
+        /// </summary>
+        Meditation,
+        /// <summary>
+        /// Blood Defect: Has a chance to recover 10% HP
+        /// </summary>
+        BloodDefect,
+        /// <summary>
+        /// Spirit Defect: Has a chance to recover 10% MP
+        /// </summary>
+        SpiritDefect,
+        /// <summary>
+        /// Revenge: Has a chance to recover 5% HP, and increase physical attack
+        /// </summary>
+        Revenge,
+        /// <summary>
+        /// Comprehend: Has a chance to increase MP by 5% and increase physical attack
+        /// </summary>
+        Comprehend,
+        /// <summary>
+        /// Spikes: Has a chance to increase physical defence as well as return 25% melee damage to attacker
+        /// </summary>
+        Spikes,
+        /// <summary>
+        /// Shield of Chi: Has a chance to cast a shield of Chi around you which reduces all damage taken by 20%
+        /// </summary>
+        ShieldOfChi,
+        /// <summary>
+        /// Bless: Has a chance to increase Physical Attack and Physical Defense
+        /// </summary>
+        Bless,
+        /// <summary>
+        /// Faith: Has a chance to recover 5% HP and increase both physical defence and magic defence
+        /// </summary>
+        Faith,
+        /// <summary>
+        /// Determination: Has a chance to stun opponent for 5 seconds but also freeze yourself for 10 seconds
+        /// </summary>
+        Determination,
+        /// <summary>
+        /// Holy: Has a chance to recover HP by 5%, and remove all debuffs
+        /// </summary>
+        Holy,
+        /// <summary>
+        /// Darken: Has a chance to freeze and seal the enemy
+        /// </summary>
+        Darken,
+        AccP8,
+        AccP22,
+        AccP38,
+        AccP58,
+        AccP78,
+        AccP98,
+        AccP118,
+        AccP138,
+        AccP158,
+        AccP178,
+        AccP198,
+        AccP218,
+        AccP238,
+        AccP258,
+        MPP310 = 1332,
+        HPP205 = 1340,
+        HPP225,
+        HPP245,
+        HPP150 = 1347,
+        HPP165,
+        HPP180,
+        MPP110 = 1360,
+        MPP130,
+        MPP250 = 1367,
+        HPP60 = 1375,
+        HPP70,
+        HPP80,
+        HPP90,
+        HPP105,
+        HPP150N2 = 1382,
+        PhyAtkP100 = 1403,
+        PhyAtkP150,
+        AccP100 = 1406,
+        AccP200,
+        AccP300,
+        EvadP250N2,
+        EvadP500,
+        HPP100,
+        HPP200,
+        HPP350,
+        HPP500,
+        HPP750,
+        HPP1000,
+        ChanM20,
+        /// <summary>
+        /// Dexterity +25
+        /// </summary>
+        DexP25,
+        /// <summary>
+        /// Magic +25
+        /// </summary>
+        MagP25,
+        PDefP400,
+        CritP4,
+        RangeP2,
+        MagAtkP25,
+        MagAtkP50,
+        MagAtkP100,
+        MagAtkP150,
+        MagAtkP200,
+        CanM10,
+        /// <summary>
+        /// Strength +5~6
+        /// </summary>
+        StrP56,
+        /// <summary>
+        /// Strength +7~8
+        /// </summary>
+        StrP78,
+        /// <summary>
+        /// Strength +8~9
+        /// </summary>
+        StrP89N2,
+        /// <summary>
+        /// Strength +9~10
+        /// </summary>
+        StrP910,
+        /// <summary>
+        /// Strength +10~11
+        /// </summary>
+        StrP1011,
+        /// <summary>
+        /// Dexterity +5~6
+        /// </summary>
+        DexP56,
+        /// <summary>
+        /// Dexterity +7~8
+        /// </summary>
+        DexP78,
+        /// <summary>
+        /// Dexterity +8~9
+        /// </summary>
+        DexP89N2,
+        /// <summary>
+        /// Dexterity +9~10
+        /// </summary>
+        DexP910
+        
 
 
     }
