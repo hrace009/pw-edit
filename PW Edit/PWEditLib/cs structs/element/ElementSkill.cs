@@ -521,9 +521,102 @@
         /// <summary>
         /// Dexterity +9~10
         /// </summary>
-        DexP910
-        
-
-
+        DexP910,
+        /// <summary>
+        /// Magic +4~5
+        /// </summary>
+        MagP45,
+        /// <summary>
+        /// Magic +5~6
+        /// </summary>
+        MagP56,
+        /// <summary>
+        /// Magic +7~8
+        /// </summary>
+        MagP78,
+        /// <summary>
+        /// Magic +8~9
+        /// </summary>
+        MagP89N2,
+        /// <summary>
+        /// Magic +9~10
+        /// </summary>
+        MagP910,
+        /// <summary>
+        /// Vitality +5~6
+        /// </summary>
+        VitP56,
+        /// <summary>
+        /// Vitality +6~7
+        /// </summary>
+        VitP67,
+        /// <summary>
+        /// Vitality +7~8
+        /// </summary>
+        VitP78,
+        /// <summary>
+        /// Vitality +8~9
+        /// </summary>
+        VitP89N2,
+        /// <summary>
+        /// Vitality +9~10
+        /// </summary>
+        VitP910,
+        ChanM15,
+        StrP6,
+        StrP6N2,
+        StrP8,
+        StrP9,
+        StrP10,
+        DexP5,
+        DexP7,
+        DexP8,
+        DexP9,
+        DexP10,
+        MagP5,
+        MagP7,
+        MagP8,
+        MagP9,
+        MagP10,
+        VitP6,
+        VitP7,
+        VitP9,
+        VitP10,
+        StrP1011N2,
+        StrP1213,
+        StrP1415,
+        StrP1819,
+        DexP1011,
+        DexP1213,
+        DexP1415,
+        DexP1617,
+        DexP1819,
+        MagP1011,
+        MagP1213,
+        MagP1415,
+        MagP1617,
+        MagP1819,
+        StrP25,
+        VitP25,
+        StrP40,
+        VitP40,
+        DexP40,
+        MagP40,
+        StrP56N2,
+        StrP67,
+        StrP78N2,
+        CritP1N3 = 1510,
+        ChanM5,
+        AccPP10N3,
+        StrP15,
+        DexP15,
+        VitP20,
+        MagP15,
+        MetalResP109 = 1538,
+        MetalResP125 = 1540,
+        WoodResP109 = 1588,
+        WoodResP125 = 1590,
+        WaterResP109 = 1633,
+        WaterResP125
     }
 }
