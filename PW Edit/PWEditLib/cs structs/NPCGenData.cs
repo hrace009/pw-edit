@@ -136,10 +136,46 @@ namespace PWEditLib.NPCGenData
     {
         public Int32 id;
         public Int32 gmID;
-        /// <summary>
-        /// Set as byte array instead of String due to constant size limit
-        /// </summary>
-        public Byte[] name;
+        //Giant messy ugly workaround to allow people to set name as a string
+        //without having to convert to Byte array on their own
+        public String name
+        {
+            get
+            {
+                MemoryStream temp = new MemoryStream();
+                Int32 x = 0;
+                while (_name[x] != 0)
+                {
+                    temp.WriteByte(_name[x]);
+                    x++;
+                }
+                return Encoding.GetEncoding("GB2312").GetString(temp.ToArray());
+            }
+            set
+            {
+                realname = Encoding.GetEncoding("GB2312").GetBytes(value);
+            }
+        }
+        private Byte[] _name;
+        internal Byte[] realname
+        {
+            get { return _name; }
+            set
+            {
+                _name = new Byte[128];
+                if (value.Length > 128)
+                {
+                    for (Int32 i = 0; i < 128; i++)
+                    {
+                        _name[i] = value[i];
+                    }
+                }
+                else
+                {
+                    value.CopyTo(_name, 0);
+                }
+            }
+        }
         public Boolean autostart;
         public Int32 autostartDelay;
         public Int32 autostopDelay;
@@ -316,7 +352,7 @@ namespace PWEditLib.NPCGenData
                     triggerFillHolder.id = br.ReadInt32();
                     triggerFillHolder.gmID = br.ReadInt32();
                     //name is ALWAYS 128 bytes long
-                    triggerFillHolder.name = br.ReadBytes(128);
+                    triggerFillHolder.realname = br.ReadBytes(128);
                     triggerFillHolder.autostart = br.ReadBoolean();
                     triggerFillHolder.autostartDelay = br.ReadInt32();
                     triggerFillHolder.autostopDelay = br.ReadInt32();
