@@ -1,4 +1,4 @@
-﻿using System;
+ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +10,7 @@ namespace PWEditTesting
     {
         static void Main(string[] args)
         {
-            NPCGEN npcgen = new NPCGEN("C:\\Users\\David\\Desktop\\npcgen.data");
+            NPCGEN npcgen = new NPCGEN();
         }
     }
 }
