@@ -33,7 +33,15 @@ namespace PWEditLib.NPCGenData
     public class CreatureSet
     {
         public Int32 spawnMode;
-        public Int32 creatureGroupCount;
+        private Int32 _creatureGroupsCount;
+        public Int32 creatureGroupCount
+        {
+            get
+            {
+                _creatureGroupsCount = creatureGroups.Count;
+                return _creatureGroupsCount;
+            }
+        }
         public Single spawnX;
         public Single spawnY;
         public Single spawnZ;
@@ -81,7 +89,15 @@ namespace PWEditLib.NPCGenData
         public Single spawnZ;
         public Single spreadX;
         public Single spreadZ;
-        public Int32 resourceGroupCount;
+        private Int32 _resourceGroupCount;
+        public Int32 resourceGroupCount
+        {
+            get
+            {
+                _resourceGroupCount = resourceGroups.Count;
+                return _resourceGroupCount;
+            }
+        }
         public Boolean unknown1;
         public Boolean unknown2;
         public Boolean unknown3;
@@ -138,12 +154,18 @@ namespace PWEditLib.NPCGenData
         public Int32 gmID;
         //Giant messy ugly workaround to allow people to set name as a string
         //without having to convert to Byte array on their own
+        /// <summary>
+        /// This does get serialized as GB2312 in XML so be aware of that if using
+        /// another XML parser
+        /// </summary>
         public String name
         {
             get
             {
                 MemoryStream temp = new MemoryStream();
                 Int32 x = 0;
+                //done to stop reading bytes out of array after a 0x00 is read (null byte)
+                //comment ^ is to remind me that I did put this check in (was so thinking I didn't do this)
                 while (_name[x] != 0)
                 {
                     temp.WriteByte(_name[x]);
@@ -198,10 +220,54 @@ namespace PWEditLib.NPCGenData
     public class NPCGEN
     {
         public Int32 version;
-        public Int32 creatureSetsCount;
-        public Int32 resourceSetsCount;
-        public Int32 dynamicsCount;
-        public Int32 triggersCount;
+        private Int32 _creatureSetsCount;
+        /// <summary>
+        /// Get the number of Creature Sets
+        /// </summary>
+        public Int32 creatureSetsCount
+        {
+            get
+            {
+                _creatureSetsCount = creatureSets.Count;
+                return _creatureSetsCount;
+            }
+        }
+        private Int32 _resourceSetsCount;
+        /// <summary>
+        /// Get the number of Resource Sets
+        /// </summary>
+        public Int32 resourceSetsCount
+        {
+            get
+            {
+                _resourceSetsCount = resourceSets.Count;
+                return _resourceSetsCount;
+            }
+        }
+        private Int32 _dynamicsCount;
+        /// <summary>
+        /// Get the number of Dynamic Objects
+        /// </summary>
+        public Int32 dynamicsCount
+        {
+            get
+            {
+                _dynamicsCount = dynamics.Count;
+                return _dynamicsCount;
+            }
+        }
+        private Int32 _triggersCount;
+        /// <summary>
+        /// Get the number of triggers
+        /// </summary>
+        public Int32 triggersCount
+        {
+            get
+            {
+                _triggersCount = triggers.Count;
+                return _triggersCount;
+            }
+        }
         public List<CreatureSet> creatureSets;
         public List<ResourceSet> resourceSets;
         public List<DynamicObj> dynamics;
@@ -390,7 +456,7 @@ namespace PWEditLib.NPCGenData
         /// </summary>
         /// <param name="XMLNPCGenData">Path to XML file containing NPCGen</param>
         /// <returns>New NPCGEN object</returns>
-        public NPCGEN LoadFromXml(String XMLNPCGenData)
+        public static NPCGEN LoadFromXml(String XMLNPCGenData)
         {
             StreamReader sr = new StreamReader(@XMLNPCGenData);
             return LoadFromXmlString(sr.ReadToEnd());
@@ -400,7 +466,7 @@ namespace PWEditLib.NPCGenData
         /// </summary>
         /// <param name="XMLNPCGenData">XML String containing NPCGen</param>
         /// <returns>New NPCGEN object</returns>
-        public NPCGEN LoadFromXmlString(String XMLNPCGenData)
+        public static NPCGEN LoadFromXmlString(String XMLNPCGenData)
         {
             try
             {
@@ -421,7 +487,7 @@ namespace PWEditLib.NPCGenData
         /// <returns>True on successful save</returns>
         public Boolean Save(String NPCGenFile)
         {
-            return true;
+            return false;
         }
         /// <summary>
         /// Serialize npcgen.data to XML
@@ -429,11 +495,18 @@ namespace PWEditLib.NPCGenData
         /// <param name="fileName">Filename to save to</param>
         public void ToXml(String fileName)
         {
-            //XmlSerializer serialize = new XmlSerializer(typeof(NPCGEN));
-            TextWriter tw = new StreamWriter(@fileName);
-            tw.Write(ToXml());
-            //serialize.Serialize(tw, this);
-            tw.Close();
+            try
+            {
+                //XmlSerializer serialize = new XmlSerializer(typeof(NPCGEN));
+                TextWriter tw = new StreamWriter(@fileName);
+                tw.Write(ToXml());
+                //serialize.Serialize(tw, this);
+                tw.Close();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
         }
         /// <summary>
         /// Serialize npcgen.data to XML
