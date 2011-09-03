@@ -29,17 +29,46 @@ namespace PWEditLib.NPCGenData
         public Int32 loopType;
         public Int32 speedFlag;
         public Int32 deadTime;
+        /// <summary>
+        /// Convert this object to a byte array
+        /// </summary>
+        /// <returns>Byte array representing the CreatureGroup</returns>
+        public Byte[] ToByteArray()
+        {
+            MemoryStream ms = new MemoryStream();
+            BinaryWriter bw = new BinaryWriter(ms);
+            bw.Write(id);
+            bw.Write(amount);
+            bw.Write(respawn);
+            bw.Write(diedTimes);
+            bw.Write(agressive);
+            bw.Write(offsetWater);
+            bw.Write(offsetTrn);
+            bw.Write(faction);
+            bw.Write(facHelper);
+            bw.Write(facAccept);
+            bw.Write(needHelp);
+            bw.Write(defFaction);
+            bw.Write(defFacHelper);
+            bw.Write(defFacAccept);
+            bw.Write(pathID);
+            bw.Write(loopType);
+            bw.Write(speedFlag);
+            bw.Write(deadTime);
+            bw.Flush();
+            return ms.ToArray();
+        }
     }
     public class CreatureSet
     {
         public Int32 spawnMode;
-        private Int32 _creatureGroupsCount;
+        internal Int32 _creatureGroupCount;
         public Int32 creatureGroupCount
         {
             get
             {
-                _creatureGroupsCount = creatureGroups.Count;
-                return _creatureGroupsCount;
+                _creatureGroupCount = creatureGroups.Count;
+                return _creatureGroupCount;
             }
         }
         public Single spawnX;
@@ -73,6 +102,41 @@ namespace PWEditLib.NPCGenData
         /// </summary>
         public Int32 unknown8;
         public List<CreatureGroup> creatureGroups;
+        /// <summary>
+        /// Convert this object to a byte array
+        /// </summary>
+        /// <returns>Byte array representing the CreatureSet</returns>
+        public Byte[] ToByteArray()
+        {
+            MemoryStream ms = new MemoryStream();
+            BinaryWriter bw = new BinaryWriter(ms);
+            bw.Write(spawnMode);
+            bw.Write(creatureGroupCount);
+            bw.Write(spawnX);
+            bw.Write(spawnY);
+            bw.Write(spawnZ);
+            bw.Write(rot1);
+            bw.Write(rot2);
+            bw.Write(rot3);
+            bw.Write(spreadX);
+            bw.Write(spreadY);
+            bw.Write(spreadZ);
+            bw.Write(unknown1);
+            bw.Write(unknown2);
+            bw.Write(unknown3);
+            bw.Write(unknown4);
+            bw.Write(unknown5);
+            bw.Write(unknown6);
+            bw.Write(trigger);
+            bw.Write(unknown7);
+            bw.Write(unknown8);
+            foreach (CreatureGroup cg in creatureGroups)
+            {
+                bw.Write(cg.ToByteArray());
+            }
+            bw.Flush();
+            return ms.ToArray();
+        }
     }
     public class ResourceGroup
     {
@@ -81,6 +145,22 @@ namespace PWEditLib.NPCGenData
         public Int32 respawn;
         public Int32 amount;
         public Int32 unknown1;
+        /// <summary>
+        /// Convert this object to a byte array
+        /// </summary>
+        /// <returns>Byte array representing the ResourceGroup</returns>
+        public Byte[] ToByteArray()
+        {
+            MemoryStream ms = new MemoryStream();
+            BinaryWriter bw = new BinaryWriter(ms);
+            bw.Write(type);
+            bw.Write(id);
+            bw.Write(respawn);
+            bw.Write(amount);
+            bw.Write(unknown1);
+            bw.Flush();
+            return ms.ToArray();
+        }
     }
     public class ResourceSet
     {
@@ -89,7 +169,7 @@ namespace PWEditLib.NPCGenData
         public Single spawnZ;
         public Single spreadX;
         public Single spreadZ;
-        private Int32 _resourceGroupCount;
+        internal Int32 _resourceGroupCount;
         public Int32 resourceGroupCount
         {
             get
@@ -123,6 +203,39 @@ namespace PWEditLib.NPCGenData
         public Boolean unknown8;
         public Boolean unknown9;
         public List<ResourceGroup> resourceGroups;
+        /// <summary>
+        /// Convert this object to a byte array
+        /// </summary>
+        /// <returns>Byte array representing the ResourceSet</returns>
+        public Byte[] ToByteArray()
+        {
+            MemoryStream ms = new MemoryStream();
+            BinaryWriter bw = new BinaryWriter(ms);
+            bw.Write(spawnX);
+            bw.Write(spawnY);
+            bw.Write(spawnZ);
+            bw.Write(spreadX);
+            bw.Write(spreadZ);
+            bw.Write(resourceGroupCount);
+            bw.Write(unknown1);
+            bw.Write(unknown2);
+            bw.Write(unknown3);
+            bw.Write(unknown4);
+            bw.Write(unknown5a);
+            bw.Write(unknown5b);
+            bw.Write(unknown5c);
+            bw.Write(unknownTrigger);
+            bw.Write(unknown6);
+            bw.Write(unknown7);
+            bw.Write(unknown8);
+            bw.Write(unknown9);
+            foreach (ResourceGroup rs in resourceGroups)
+            {
+                bw.Write(rs.ToByteArray());
+            }
+            bw.Flush();
+            return ms.ToArray();
+        }
     }
     public class DynamicObj
     {
@@ -147,6 +260,26 @@ namespace PWEditLib.NPCGenData
         /// Byte used instead of Unsigned Char
         /// </summary>
         public Byte scale;
+        /// <summary>
+        /// Convert this object to a byte array
+        /// </summary>
+        /// <returns>Byte array representing the CreatureSet</returns>
+        public Byte[] ToByteArray()
+        {
+            MemoryStream ms = new MemoryStream();
+            BinaryWriter bw = new BinaryWriter(ms);
+            bw.Write(id);
+            bw.Write(spawnX);
+            bw.Write(spawnY);
+            bw.Write(spawnZ);
+            bw.Write(dir1);
+            bw.Write(dir2);
+            bw.Write(rad);
+            bw.Write(triggerID);
+            bw.Write(scale);
+            bw.Flush();
+            return ms.ToArray();
+        }
     }
     public class Trigger
     {
@@ -216,6 +349,38 @@ namespace PWEditLib.NPCGenData
         public Int32 hour2;
         public Int32 minute2;
         public Int32 duration;
+        /// <summary>
+        /// Convert this object to a byte array
+        /// </summary>
+        /// <returns>Byte array representing the Trigger</returns>
+        public Byte[] ToByteArray()
+        {
+            MemoryStream ms = new MemoryStream();
+            BinaryWriter bw = new BinaryWriter(ms);
+            bw.Write(id);
+            bw.Write(gmID);
+            bw.Write(_name);
+            bw.Write(autostart);
+            bw.Write(autostartDelay);
+            bw.Write(autostopDelay);
+            bw.Write(dontStartOnSch);
+            bw.Write(dontStoponSch);
+            bw.Write(year1);
+            bw.Write(month1);
+            bw.Write(weekDay1);
+            bw.Write(day1);
+            bw.Write(hour1);
+            bw.Write(minute1);
+            bw.Write(year2);
+            bw.Write(month2);
+            bw.Write(weekDay2);
+            bw.Write(day2);
+            bw.Write(hour2);
+            bw.Write(minute2);
+            bw.Write(duration);
+            bw.Flush();
+            return ms.ToArray();
+        }
     }
     public class NPCGEN
     {
@@ -303,19 +468,19 @@ namespace PWEditLib.NPCGenData
                 dynamics = new List<DynamicObj>();
                 triggers = new List<Trigger>();
                 version = br.ReadInt32();
-                creatureSetsCount = br.ReadInt32();
-                resourceSetsCount = br.ReadInt32();
-                dynamicsCount = br.ReadInt32();
-                triggersCount = br.ReadInt32();
+                _creatureSetsCount = br.ReadInt32();
+                _resourceSetsCount = br.ReadInt32();
+                _dynamicsCount = br.ReadInt32();
+                _triggersCount = br.ReadInt32();
                 Int32 i;
                 Int32 x;
                 CreatureSet creatureFillHolder;
                 CreatureGroup creatureGFillHolder;
-                for (i = 0; i < creatureSetsCount; i++)
+                for (i = 0; i < _creatureSetsCount; i++)
                 {
                     creatureFillHolder = new CreatureSet();
                     creatureFillHolder.spawnMode = br.ReadInt32();
-                    creatureFillHolder.creatureGroupCount = br.ReadInt32();
+                    creatureFillHolder._creatureGroupCount = br.ReadInt32();
                     creatureFillHolder.spawnX = br.ReadSingle();
                     creatureFillHolder.spawnY = br.ReadSingle();
                     creatureFillHolder.spawnZ = br.ReadSingle();
@@ -335,7 +500,7 @@ namespace PWEditLib.NPCGenData
                     creatureFillHolder.unknown7 = br.ReadInt32();
                     creatureFillHolder.unknown8 = br.ReadInt32();
                     creatureFillHolder.creatureGroups = new List<CreatureGroup>();
-                    for (x = 0; x < creatureFillHolder.creatureGroupCount; x++)
+                    for (x = 0; x < creatureFillHolder._creatureGroupCount; x++)
                     {
                         creatureGFillHolder = new CreatureGroup();
                         creatureGFillHolder.id = br.ReadInt32();
@@ -362,7 +527,7 @@ namespace PWEditLib.NPCGenData
                 }
                 ResourceSet resourceFillHolder;
                 ResourceGroup resourceGFillHolder;
-                for (i = 0; i < resourceSetsCount; i++)
+                for (i = 0; i < _resourceSetsCount; i++)
                 {
                     resourceFillHolder = new ResourceSet();
                     resourceFillHolder.spawnX = br.ReadSingle();
@@ -370,7 +535,7 @@ namespace PWEditLib.NPCGenData
                     resourceFillHolder.spawnZ = br.ReadSingle();
                     resourceFillHolder.spreadX = br.ReadSingle();
                     resourceFillHolder.spreadZ = br.ReadSingle();
-                    resourceFillHolder.resourceGroupCount = br.ReadInt32();
+                    resourceFillHolder._resourceGroupCount = br.ReadInt32();
                     resourceFillHolder.unknown1 = br.ReadBoolean();
                     resourceFillHolder.unknown2 = br.ReadBoolean();
                     resourceFillHolder.unknown3 = br.ReadBoolean();
@@ -384,7 +549,7 @@ namespace PWEditLib.NPCGenData
                     resourceFillHolder.unknown8 = br.ReadBoolean();
                     resourceFillHolder.unknown9 = br.ReadBoolean();
                     resourceFillHolder.resourceGroups = new List<ResourceGroup>();
-                    for (x = 0; x < resourceFillHolder.resourceGroupCount; x++)
+                    for (x = 0; x < resourceFillHolder._resourceGroupCount; x++)
                     {
                         resourceGFillHolder = new ResourceGroup();
                         resourceGFillHolder.type = br.ReadInt32();
@@ -397,7 +562,7 @@ namespace PWEditLib.NPCGenData
                     resourceSets.Add(resourceFillHolder);
                 }
                 DynamicObj dynamicObjFillHolder;
-                for (i = 0; i < dynamicsCount; i++)
+                for (i = 0; i < _dynamicsCount; i++)
                 {
                     dynamicObjFillHolder = new DynamicObj();
                     dynamicObjFillHolder.id = br.ReadInt32();
@@ -412,7 +577,7 @@ namespace PWEditLib.NPCGenData
                     dynamics.Add(dynamicObjFillHolder);
                 }
                 Trigger triggerFillHolder;
-                for (i = 0; i < triggersCount; i++)
+                for (i = 0; i < _triggersCount; i++)
                 {
                     triggerFillHolder = new Trigger();
                     triggerFillHolder.id = br.ReadInt32();
@@ -487,7 +652,43 @@ namespace PWEditLib.NPCGenData
         /// <returns>True on successful save</returns>
         public Boolean Save(String NPCGenFile)
         {
-            return false;
+            try
+            {
+                //start building npcgen.data in RAM so if it fails a corrupt one won't be written
+                MemoryStream ms = new MemoryStream();
+                BinaryWriter bw = new BinaryWriter(ms);
+                bw.Write(version);
+                bw.Write(creatureSetsCount);
+                bw.Write(resourceSetsCount);
+                bw.Write(dynamicsCount);
+                bw.Write(triggersCount);
+                foreach (CreatureSet cs in creatureSets)
+                {
+                    bw.Write(cs.ToByteArray());
+                }
+                foreach (ResourceSet rs in resourceSets)
+                {
+                    bw.Write(rs.ToByteArray());
+                }
+                foreach (DynamicObj dyo in dynamics)
+                {
+                    bw.Write(dyo.ToByteArray());
+                } foreach (Trigger t in triggers)
+                {
+                    bw.Write(t.ToByteArray());
+                }
+                bw.Flush();
+                FileStream fs = new FileStream(NPCGenFile, FileMode.Create);
+                ms.Position = 0;
+                ms.CopyTo(fs);
+                fs.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                return false;
+            }
         }
         /// <summary>
         /// Serialize npcgen.data to XML
