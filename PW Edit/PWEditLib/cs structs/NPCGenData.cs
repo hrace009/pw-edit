@@ -144,7 +144,7 @@ namespace PWEditLib.NPCGenData
         public Int32 id;
         public Int32 respawn;
         public Int32 amount;
-        public Int32 unknown1;
+        public Int32 hmap_offset;
         /// <summary>
         /// Convert this object to a byte array
         /// </summary>
@@ -157,7 +157,7 @@ namespace PWEditLib.NPCGenData
             bw.Write(id);
             bw.Write(respawn);
             bw.Write(amount);
-            bw.Write(unknown1);
+            bw.Write(hmap_offset);
             bw.Flush();
             return ms.ToArray();
         }
@@ -185,15 +185,15 @@ namespace PWEditLib.NPCGenData
         /// <summary>
         /// Byte used instead of Unsigned Char
         /// </summary>
-        public Byte unknown5a;
+        public Byte rot1;
         /// <summary>
         /// Byte used instead of Unsigned Char
         /// </summary>
-        public Byte unknown5b;
+        public Byte rot2;
         /// <summary>
         /// Byte used instead of Unsigned Char
         /// </summary>
-        public Byte unknown5c;
+        public Byte rot3;
         public Int32 unknownTrigger;
         /// <summary>
         /// Byte used instead of Unsigned Char
@@ -221,9 +221,9 @@ namespace PWEditLib.NPCGenData
             bw.Write(unknown2);
             bw.Write(unknown3);
             bw.Write(unknown4);
-            bw.Write(unknown5a);
-            bw.Write(unknown5b);
-            bw.Write(unknown5c);
+            bw.Write(rot1);
+            bw.Write(rot2);
+            bw.Write(rot3);
             bw.Write(unknownTrigger);
             bw.Write(unknown6);
             bw.Write(unknown7);
@@ -540,9 +540,9 @@ namespace PWEditLib.NPCGenData
                     resourceFillHolder.unknown2 = br.ReadBoolean();
                     resourceFillHolder.unknown3 = br.ReadBoolean();
                     resourceFillHolder.unknown4 = br.ReadInt32();
-                    resourceFillHolder.unknown5a = br.ReadByte();
-                    resourceFillHolder.unknown5b = br.ReadByte();
-                    resourceFillHolder.unknown5c = br.ReadByte();
+                    resourceFillHolder.rot1 = br.ReadByte();
+                    resourceFillHolder.rot2 = br.ReadByte();
+                    resourceFillHolder.rot3 = br.ReadByte();
                     resourceFillHolder.unknownTrigger = br.ReadInt32();
                     resourceFillHolder.unknown6 = br.ReadByte();
                     resourceFillHolder.unknown7 = br.ReadBoolean();
@@ -556,7 +556,7 @@ namespace PWEditLib.NPCGenData
                         resourceGFillHolder.id = br.ReadInt32();
                         resourceGFillHolder.respawn = br.ReadInt32();
                         resourceGFillHolder.amount = br.ReadInt32();
-                        resourceGFillHolder.unknown1 = br.ReadInt32();
+                        resourceGFillHolder.hmap_offset = br.ReadInt32();
                         resourceFillHolder.resourceGroups.Add(resourceGFillHolder);
                     }
                     resourceSets.Add(resourceFillHolder);
