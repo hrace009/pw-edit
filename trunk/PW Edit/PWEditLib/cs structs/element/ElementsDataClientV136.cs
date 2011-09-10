@@ -22,7 +22,6 @@ namespace PWEditLib.ElementsData.Client.V136
     public class WeaponMajorType
     {
         public Int32 id;
-        [MarshalAs (UnmanagedType.ByValTStr, SizeConst=32)]
         public String name;
     }
     /// <summary>
@@ -31,13 +30,8 @@ namespace PWEditLib.ElementsData.Client.V136
     public class WeaponSubType
     {
         public UInt32 id;
-        [MarshalAs (UnmanagedType.ByValTStr, SizeConst=32)]
         public String name;
-        [MarshalAs (UnmanagedType.ByValTStr, SizeConst = 128)]
         public String hitgfx;
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
         public String hitsfx;
-
-
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace PWEditLib.ElementsData
 {
-    public enum ElementSkill
+    public enum ElementSkillV136
     {
         PDefP500 = 220,
         MaxEndP200 = 300,
