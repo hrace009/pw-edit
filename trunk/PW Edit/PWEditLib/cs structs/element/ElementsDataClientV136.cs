@@ -2,7 +2,7 @@
 using System.Text;
 using System.Runtime.InteropServices;
 
-namespace PWEditLib.ElementsData.Client.CN
+namespace PWEditLib.ElementsData.Client.V136
 {
     /// <summary>
     /// List 1
@@ -10,7 +10,6 @@ namespace PWEditLib.ElementsData.Client.CN
     public class EquipmentAddon
     {
         public UInt32 id;
-        [MarshalAs (UnmanagedType.ByValTStr, SizeConst=32)]
         public String name;
         public Int32 num_params;
         public Int32 param1;
