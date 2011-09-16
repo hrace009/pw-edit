@@ -46,8 +46,8 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="cs structs\element\ElementsDataClientCN.cs" />
-    <Compile Include="cs structs\element\ElementSkill.cs" />
+    <Compile Include="cs structs\element\ElementsDataClientV136.cs" />
+    <Compile Include="cs structs\element\ElementSkillV136.cs" />
     <Compile Include="cs structs\NPCGenData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -181,6 +181,9 @@
     <None Include="c structs\element\%2897%29 PET_FOOD_ESSENCE.h" />
     <None Include="c structs\element\%2898%29 PET_FACETICKET_ESSENCE.h" />
     <None Include="c structs\element\%2899%29 FIREWORKS_ESSENCE.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="pck stuff\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

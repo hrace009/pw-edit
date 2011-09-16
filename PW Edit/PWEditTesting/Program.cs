@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using PWEditLib.NPCGenData;
+using PWEditLib.ElementsData.Client.V136;
 using System.IO;
 using System.Net;
 
@@ -78,6 +79,15 @@ namespace PWEditTesting
             Trigger testTrigger = new Trigger();
             testTrigger.name = "Test";
             Console.WriteLine(testTrigger.name);
+
+            EquipmentAddon ea = new EquipmentAddon();
+            ea.name = "test";
+            Console.WriteLine(ea.name);
+            ea.name = null;
+            Console.WriteLine(ea.name);
+            ea.name = "";
+            Console.WriteLine(ea.name);
+
             Console.ReadKey(true);
         }
 
